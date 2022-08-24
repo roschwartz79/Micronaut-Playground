@@ -1,0 +1,41 @@
+micronaut:
+  server:
+    port: 8082
+    netty:
+      log-level: DEBUG
+  application:
+    name: micronautPostgres
+
+logger:
+  levels:
+    io.micronaut.http.client: DEBUG
+    io.micronaut.data.query: DEBUG
+    io.micronaut.http.server.netty.RoutingInBoundHandler: DEBUG
+    io.micronaut.http.server.netty.RoutingOutboundBoundHandler: DEBUG
+
+datasources:
+  default:
+    driverClassName: org.postgresql.Driver
+    db-type: postgresql
+    dialect: POSTGRES
+#    schema-generate: create
+#    schema: micronaut-playground
+    url: jdbc:postgresql://localhost:5432/micronaut-playground?currentSchema=micronaut-playground
+    username: username
+    password: password
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+flyway:
+  datasources:
+    default:
+      enabled: true
+
+endpoints:
+  flyway:
+    enabled: true
+    sensitive: false
+

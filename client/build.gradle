@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    api "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    api "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
+}

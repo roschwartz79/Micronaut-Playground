@@ -1,0 +1,54 @@
+plugins {
+    id("groovy") 
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.5.1"
+    id("io.micronaut.test-resources") version "3.5.1"
+}
+
+version = "0.1"
+group = "micronaut.postgres"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly("io.micronaut.data:micronaut-data-processor")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.sql:micronaut-jooq")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    compileOnly("io.micronaut:micronaut-http-validation")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.flywaydb:flyway-mysql")
+    implementation("io.micronaut:micronaut-validation")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+}
+
+
+application {
+    mainClass.set("micronaut.postgres.Application")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    version = "3.6.0"
+    runtime("netty")
+    testRuntime("spock2")
+    processing {
+        incremental(true)
+        annotations("micronaut.postgres.*")
+    }
+}
+
+
+

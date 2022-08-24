@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS people;
+
+CREATE TABLE people (
+    name VARCHAR NOT NULL UNIQUE PRIMARY KEY,
+    age INT
+);
