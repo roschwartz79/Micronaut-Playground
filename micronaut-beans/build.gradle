@@ -34,7 +34,7 @@ application {
     mainClass.set("micronaut.beans.ApplicationKt")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
+    sourceCompatibility = JavaVersion.toVersion("17")
 }
 
 tasks {

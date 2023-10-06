@@ -1,3 +1,0 @@
-rootProject.name = "micronaut-playground"
-
-include("client", "micronaut-basic", "micronaut-http", "micronaut-postgres", "micronaut-beans")
